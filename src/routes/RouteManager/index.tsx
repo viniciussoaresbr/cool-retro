@@ -1,9 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from '../../components/Header';
+import { ROUTES } from '../routes';
+import RetrospectiveBoard from '../../pages/RetrospectiveBoard';
 import DashboardPage from '../../pages/DashboardPage';
 import Home from '../../pages/Home';
-import { ROUTES } from '../routes';
+import DashboardProvider from '../../contexts/DashboardContext';
 
 const RouteManager = () => {
   return (
@@ -11,7 +13,15 @@ const RouteManager = () => {
       <Header />
       <Routes>
         <Route path={ROUTES.HOME} element={<Home />} />
-        <Route path={ROUTES.DASHBOARD_PAGE} element={<DashboardPage />} />
+        <Route
+          path={ROUTES.DASHBOARD_PAGE}
+          element={
+            <DashboardProvider>
+              <DashboardPage />
+            </DashboardProvider>
+          }
+        />
+        <Route path={ROUTES.RETRO_BOARD} element={<RetrospectiveBoard />} />
       </Routes>
     </Router>
   );
