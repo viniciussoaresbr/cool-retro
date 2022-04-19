@@ -43,9 +43,9 @@ interface Note {
 
 const RetrospectiveBoard = () => {
   const params = useLocation();
-  const { title, description, votes } = params.state as ParamsState;
+  const { id, title, description, votes } = params.state as ParamsState;
   const [notes, setNotes] = useState<Note[]>(() => {
-    const notesLocalStorage = localStorage.getItem(`notes-${title}`);
+    const notesLocalStorage = localStorage.getItem(`notes-${id}`);
     return notesLocalStorage ? JSON.parse(notesLocalStorage) : [];
   });
 
@@ -138,6 +138,7 @@ const RetrospectiveBoard = () => {
   };
 
   interface ParamsState {
+    id: string;
     title: string;
     description: string;
     votes: number;

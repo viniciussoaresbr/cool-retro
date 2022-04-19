@@ -55,6 +55,7 @@ const DashboardProvider: React.FC = ({ children }) => {
   const navigateToPage = (dashboard: Dashboard) => {
     navigate(`/dashboard/${dashboard.id}`, {
       state: {
+        id: dashboard.id,
         title: dashboard.title,
         description: dashboard.description,
         votes: dashboard.votes,
