@@ -15,6 +15,11 @@ export const RetroHeader = styled.header`
   align-items: center;
   justify-content: center;
   background-color: ${({ theme }) => theme.colors.gray};
+  @media (max-width: 430px) {
+    flex-direction: column;
+    min-height: 10rem;
+    justify-content: space-between;
+  }
 `;
 
 interface RetroProps {
@@ -57,6 +62,15 @@ export const RetroForm = styled.form`
   border-radius: 0.3rem;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  @media (max-width: 840px) {
+    width: 100%;
+  }
+
+  @media (max-width: 630px) {
+    flex-direction: column;
+    justify-content: space-around;
+    height: 10rem;
+  }
 `;
 
 export const RetroInput = styled.input`
@@ -74,6 +88,12 @@ export const RetroInput = styled.input`
   &:focus {
     border: 1px solid ${({ theme }) => theme.colors.primaryLight};
   }
+
+  @media (max-width: 630px) {
+    width: 90%;
+    height: 4rem;
+    margin: 0.5rem 0;
+  }
 `;
 
 export const RadioButtonContainer = styled.section`
@@ -82,6 +102,9 @@ export const RadioButtonContainer = styled.section`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  @media (max-width: 400px) {
+    width: 100%;
+  }
 `;
 
 export const RadioButtonWrapper = styled.div`
@@ -152,10 +175,15 @@ export const RetroButton = styled.button`
   &:hover {
     background-color: ${({ theme }) => theme.colors.secondary};
   }
+  @media (max-width: 630px) {
+    width: 90%;
+    height: 4rem;
+  }
 `;
 
 export const DragDrogContainer = styled.section`
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   width: 100%;
   min-height: 100vh;
@@ -230,6 +258,12 @@ export const EvaluateArea = styled.section`
   height: 3rem;
   background-color: #c0d2d8;
   margin: 1rem 0;
+  @media (max-width: 745px) {
+    min-height: 8rem;
+  }
+  @media (max-width: 400px) {
+    min-height: 15rem;
+  }
 `;
 
 interface EvaluateButtonProps {
@@ -247,10 +281,18 @@ export const EvaluateRetroButton = styled.button<EvaluateButtonProps>`
   color: ${({ theme }) => theme.colors.light};
   border-radius: 0.2rem;
   cursor: pointer;
+
+  @media (max-width: 1200px) {
+    min-width: 10rem;
+  }
 `;
 
 export const EvaluateRetroText = styled.p`
   font: 1.2rem ${({ theme }) => theme.fonts.default};
   font-weight: ${({ theme }) => theme.fonts.weight.regular};
   margin: 1rem 0;
+  @media (max-width: 670px) {
+    font: 1rem ${({ theme }) => theme.fonts.default};
+    font-weight: ${({ theme }) => theme.fonts.weight.regular};
+  }
 `;

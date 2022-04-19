@@ -7,6 +7,10 @@ export const StyledHome = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
+
+  @media (max-width: 970px) {
+    flex-direction: column;
+  }
 `;
 
 export const PlanningVector = styled(Planning)`
@@ -33,6 +37,11 @@ export const HomeContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 1rem;
+
+  @media (max-width: 970px) {
+    align-items: center;
+    width: 100%;
+  }
 `;
 
 export const HomeButton = styled.button`

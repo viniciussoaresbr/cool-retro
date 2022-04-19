@@ -6,6 +6,10 @@ export const MainContainer = styled.main`
   display: flex;
   width: 100%;
   min-height: calc(100vh - 4rem);
+  @media (max-width: 540px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const DashboardContainer = styled.section`
@@ -13,6 +17,10 @@ export const DashboardContainer = styled.section`
   flex-wrap: wrap;
   width: calc(100% - 15rem);
   height: 100%;
+  @media (max-width: 540px) {
+    width: 100%;
+    justify-content: center;
+  }
 `;
 
 export const DashboardCard = styled.div`
