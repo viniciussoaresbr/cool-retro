@@ -1,15 +1,31 @@
 import React from 'react';
-import DashBoard from '../../components/Dashboard';
-import DashboardProvider from '../../contexts/DashboardContext';
-import { StyledHome } from './styles';
+import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '../../routes/routes';
+import {
+  ArrowIcon,
+  HomeButton,
+  HomeContainer,
+  HomeDescription,
+  HomeTitle,
+  PlanningVector,
+  StyledHome,
+  TextContent,
+} from './styles';
 
 const Home = () => {
+  const navigate = useNavigate();
   return (
-    <DashboardProvider>
-      <StyledHome>
-        <DashBoard />
-      </StyledHome>
-    </DashboardProvider>
+    <StyledHome>
+      <HomeContainer>
+        <HomeTitle>Faça uma Retrospectiva com sua equipe</HomeTitle>
+        <HomeDescription>- Avalie o que rolou na Sprint</HomeDescription>
+        <HomeButton onClick={() => navigate(ROUTES.DASHBOARD_PAGE)}>
+          <TextContent>Começar</TextContent>
+          <ArrowIcon>&#10140;</ArrowIcon>
+        </HomeButton>
+      </HomeContainer>
+      <PlanningVector />
+    </StyledHome>
   );
 };
 
