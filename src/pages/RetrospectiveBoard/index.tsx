@@ -49,8 +49,6 @@ const RetrospectiveBoard = () => {
     return notesLocalStorage ? JSON.parse(notesLocalStorage) : [];
   });
 
-  console.log(id);
-
   const columnsSetup = {
     ['notes']: {
       name: 'Todas as anotações',
@@ -101,7 +99,7 @@ const RetrospectiveBoard = () => {
     setColumns: React.Dispatch<React.SetStateAction<IColumns>>,
   ) => {
     if (!result.destination || !allowDraggable) {
-      toast.error('Não é possível arrastar !');
+      toast.error('Não é possível arrastar ');
       return;
     }
     const { source, destination } = result;
@@ -177,7 +175,7 @@ const RetrospectiveBoard = () => {
     startEvaluation:
       'Obs: Para liberar o modo de avaliação , onde é possível arrastar as notas é preciso iniciar a avaliação.',
     finalizeEvaluation:
-      'Obs: Não é possível adicionar notas no modo de avaliação , finalize a avaliação e adicione mais notas',
+      'Obs: Não é possível adicionar notas no modo de avaliação , finalize a avaliação e adicione mais notas.',
   };
 
   return (
