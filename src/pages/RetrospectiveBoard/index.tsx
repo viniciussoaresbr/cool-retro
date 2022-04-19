@@ -99,7 +99,7 @@ const RetrospectiveBoard = () => {
     setColumns: React.Dispatch<React.SetStateAction<IColumns>>,
   ) => {
     if (!result.destination || !allowDraggable) {
-      toast.error('Não é possível arrastar ');
+      toast.error('Não foi possível arrastar');
       return;
     }
     const { source, destination } = result;
