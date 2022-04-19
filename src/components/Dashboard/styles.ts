@@ -39,6 +39,7 @@ export const DashboardCard = styled.div`
   cursor: pointer;
   overflow: hidden;
   word-break: break-all;
+  user-select: none;
 `;
 
 export const DashboardTitle = styled.h1`

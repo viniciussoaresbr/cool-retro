@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { DashboardContext } from '../../contexts/DashboardContext';
 import AddBox from '../common/AddBox';
 import Modal from '../common/Modal';
@@ -19,8 +19,16 @@ import {
 const DashBoard = () => {
   const [showForm, setShowForm] = useState<boolean>(false);
   const [dashboardId, setDashboardId] = useState<string | undefined>('');
-  const { dashboards, deleteDashboards, navigateToPage } =
-    useContext(DashboardContext);
+  const {
+    dashboards,
+    deleteDashboards,
+    navigateToPage,
+    addDashboardsToLocalStorage,
+  } = useContext(DashboardContext);
+
+  useEffect(() => {
+    addDashboardsToLocalStorage();
+  }, [dashboards]);
 
   return (
     <MainContainer>
