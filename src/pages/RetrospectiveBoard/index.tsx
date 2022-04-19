@@ -49,6 +49,8 @@ const RetrospectiveBoard = () => {
     return notesLocalStorage ? JSON.parse(notesLocalStorage) : [];
   });
 
+  console.log(id);
+
   const columnsSetup = {
     ['notes']: {
       name: 'Todas as anotações',
@@ -74,7 +76,7 @@ const RetrospectiveBoard = () => {
   }, [notes]);
 
   const addNotesToLocalStorage = () => {
-    localStorage.setItem(`notes-${title}`, JSON.stringify(notes));
+    localStorage.setItem(`notes-${id}`, JSON.stringify(notes));
   };
 
   const [columns, setColumns] = useState<IColumns>(columnsSetup);
