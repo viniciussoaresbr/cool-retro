@@ -1,12 +1,8 @@
 import React from 'react';
+import { AddBoxProps } from '../../../interfaces';
 import { AddCircle, Box, BoxLabel } from './styles';
 
-interface Props {
-  boxText?: string;
-  handleClick: () => void;
-}
-
-const AddBox = ({ boxText, handleClick }: Props) => {
+const AddBox = ({ boxText, handleClick }: AddBoxProps) => {
   return (
     <Box onClick={handleClick}>
       <BoxLabel>{boxText}</BoxLabel>

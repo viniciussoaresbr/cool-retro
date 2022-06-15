@@ -6,6 +6,7 @@ import RetrospectiveBoard from '../../pages/RetrospectiveBoard';
 import DashboardPage from '../../pages/DashboardPage';
 import Home from '../../pages/Home';
 import DashboardProvider from '../../contexts/DashboardContext';
+import RetrospectiveProvider from '../../contexts/RetrospectiveContext';
 
 const RouteManager = () => {
   return (
@@ -21,7 +22,14 @@ const RouteManager = () => {
             </DashboardProvider>
           }
         />
-        <Route path={ROUTES.RETRO_BOARD} element={<RetrospectiveBoard />} />
+        <Route
+          path={ROUTES.RETRO_BOARD}
+          element={
+            <RetrospectiveProvider>
+              <RetrospectiveBoard />
+            </RetrospectiveProvider>
+          }
+        />
       </Routes>
     </Router>
   );

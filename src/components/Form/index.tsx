@@ -10,13 +10,9 @@ import {
   StyledTextArea,
   Warning,
 } from './styles';
+import { FormProps } from '../../interfaces';
 
-interface Props {
-  handleClose: () => void;
-  dashboardId?: string;
-}
-
-const Form = ({ handleClose, dashboardId = '' }: Props) => {
+const Form = ({ handleClose, dashboardId = '' }: FormProps) => {
   type Inputs = {
     title: string;
     description: string;
@@ -75,7 +71,7 @@ const Form = ({ handleClose, dashboardId = '' }: Props) => {
         {...register('votes', { required: true })}
         type="number"
         min="1"
-        max="10"
+        max="20"
         name="votes"
         inputWidth="20%"
         validation={errors.votes}

@@ -124,7 +124,11 @@ export const RadioButtonLabel = styled.label`
   margin: 0 0.5rem;
 `;
 
-export const RadioButton = styled.input`
+interface RadioButtonProps {
+  red?: string;
+}
+
+export const RadioButton = styled.input<RadioButtonProps>`
   cursor: pointer;
   opacity: 0;
   z-index: 1;
@@ -147,8 +151,8 @@ export const RadioButton = styled.input`
     props.checked &&
     ` 
     &:checked + ${RadioButtonLabel} {
-      background: #51C4D3;
-      border: 1px solid #51C4D3;
+      background: ${props.red ? '#d90429' : '#51C4D3'};
+      border: 1px solid ${props.red ? '#d90429' : '#51C4D3'};
       &::after {
         content: "";
         display: block;
@@ -208,7 +212,6 @@ export const ColumnsContainer = styled.div`
 
 interface DragDrogProps {
   isDragging: boolean;
-  allowDraggable?: boolean;
   radioSelect?: string;
 }
 
@@ -221,78 +224,6 @@ export const DroppableArea = styled.div<DragDrogProps>`
   padding: 0.3rem;
   border-radius: 0.3rem;
   transition: ease 0.2s;
-  background-color: ${({ isDragging, allowDraggable }) => {
-    if (allowDraggable) {
-      return allowDraggable && isDragging ? '#FBC5C6' : '#D8E3E7 ';
-    }
-    return isDragging ? '#C0D2D8' : '#D8E3E7 ';
-  }};
-`;
-
-export const NoteCard = styled.div<DragDrogProps>`
-  width: 19rem;
-  height: 5rem;
-  border-radius: 0.2rem;
-  margin: 0.3rem 0;
-  padding: 0.5rem;
-  background-color: ${({ isDragging, radioSelect }) => {
-    if (radioSelect === 'negative') {
-      return radioSelect && isDragging ? '#B5171A' : '#E32629';
-    }
-    return isDragging ? '#0C4C5A' : '#126E82';
-  }};
-  user-select: none;
-`;
-
-export const NoteText = styled.p`
-  font: 1.2rem ${({ theme }) => theme.fonts.default};
-  font-weight: ${({ theme }) => theme.fonts.weight.regular};
-  color: ${({ theme }) => theme.colors.light};
-`;
-
-export const EvaluateArea = styled.section`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  height: 3rem;
-  background-color: #c0d2d8;
-  margin: 1rem 0;
-  @media (max-width: 745px) {
-    min-height: 8rem;
-  }
-  @media (max-width: 400px) {
-    min-height: 15rem;
-  }
-`;
-
-interface EvaluateButtonProps {
-  allowDraggable?: boolean;
-}
-
-export const EvaluateRetroButton = styled.button<EvaluateButtonProps>`
-  padding: 0 0.3rem;
-  height: 2rem;
-  margin: 1rem 2rem;
-  font: 1.3rem ${({ theme }) => theme.fonts.title};
-  font-weight: ${({ theme }) => theme.fonts.weight.regular};
-  background-color: ${({ theme, allowDraggable }) =>
-    allowDraggable ? '#ba181b' : theme.colors.primary};
-  color: ${({ theme }) => theme.colors.light};
-  border-radius: 0.2rem;
-  cursor: pointer;
-
-  @media (max-width: 1200px) {
-    min-width: 10rem;
-  }
-`;
-
-export const EvaluateRetroText = styled.p`
-  font: 1.2rem ${({ theme }) => theme.fonts.default};
-  font-weight: ${({ theme }) => theme.fonts.weight.regular};
-  margin: 1rem 0;
-  @media (max-width: 670px) {
-    font: 1rem ${({ theme }) => theme.fonts.default};
-    font-weight: ${({ theme }) => theme.fonts.weight.regular};
-  }
+  background-color: ${({ isDragging }) =>
+    isDragging ? '#C0D2D8' : '#D8E3E7 '};
 `;

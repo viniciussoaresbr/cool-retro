@@ -5,7 +5,7 @@ const theme = {
     secondary: '#126E82',
     light: '#F1F6F8',
     gray: '#D8E3E7',
-    red: '#ba1200',
+    red: '#d90429',
   },
   fonts: {
     title: 'Saira Condensed',
