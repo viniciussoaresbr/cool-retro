@@ -58,8 +58,8 @@ const RetrospectiveBoard = () => {
           value={noteText}
           type="text"
           name="note"
-          placeholder="O que rolou na Sprint ?"
-          maxLength={40}
+          placeholder="Digite algo..."
+          maxLength={120}
           onChange={e => handleInputChange(e)}
         />
         <RetroButton type="submit">Criar Nota</RetroButton>

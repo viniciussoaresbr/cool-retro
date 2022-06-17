@@ -22,10 +22,11 @@ export const NoteCardBoard = styled.div<DragDrogProps>`
   }};
   user-select: none;
   word-break: break-all;
+  overflow: hidden;
 `;
 
 export const NoteText = styled.p`
-  font: 1.2rem ${({ theme }) => theme.fonts.default};
+  font: 1rem ${({ theme }) => theme.fonts.default};
   font-weight: ${({ theme }) => theme.fonts.weight.regular};
   color: ${({ theme }) => theme.colors.light};
 `;
