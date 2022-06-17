@@ -19,16 +19,8 @@ import {
 const DashBoard = () => {
   const [showForm, setShowForm] = useState<boolean>(false);
   const [dashboardId, setDashboardId] = useState<string | undefined>('');
-  const {
-    dashboards,
-    deleteDashboards,
-    navigateToPage,
-    addDashboardsToLocalStorage,
-  } = useContext(DashboardContext);
-
-  useEffect(() => {
-    addDashboardsToLocalStorage();
-  }, [dashboards]);
+  const { dashboards, deleteDashboards, navigateToPage } =
+    useContext(DashboardContext);
 
   return (
     <MainContainer>

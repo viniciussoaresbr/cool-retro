@@ -61,7 +61,6 @@ export interface DashBoardContextInterface {
   deleteDashboards: (id: string) => void;
   dashboards: Dashboard[];
   navigateToPage: (dashboard: Dashboard) => void;
-  addDashboardsToLocalStorage: () => void;
 }
 
 export interface RetrospectiveContextInterface {

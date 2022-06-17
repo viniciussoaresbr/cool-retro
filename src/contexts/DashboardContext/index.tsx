@@ -8,10 +8,7 @@ export const DashboardContext = createContext<DashBoardContextInterface>(
 );
 
 const DashboardProvider: React.FC = ({ children }) => {
-  const [dashboards, setDashboards] = useState<Dashboard[]>(() => {
-    const dashboardsLocalStorage = localStorage.getItem('dashboards');
-    return dashboardsLocalStorage ? JSON.parse(dashboardsLocalStorage) : [];
-  });
+  const [dashboards, setDashboards] = useState<Dashboard[]>([]);
   const navigate = useNavigate();
 
   const createDashboards = (data: Dashboard) => {
@@ -47,10 +44,6 @@ const DashboardProvider: React.FC = ({ children }) => {
     });
   };
 
-  const addDashboardsToLocalStorage = () => {
-    localStorage.setItem('dashboards', JSON.stringify(dashboards));
-  };
-
   return (
     <DashboardContext.Provider
       value={{
@@ -59,7 +52,6 @@ const DashboardProvider: React.FC = ({ children }) => {
         deleteDashboards,
         dashboards,
         navigateToPage,
-        addDashboardsToLocalStorage,
       }}
     >
       {children}
