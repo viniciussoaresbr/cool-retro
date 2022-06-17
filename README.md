@@ -11,9 +11,9 @@
 <h2>⚙️ Construção</h2>
 <ul>
   <li>Utilização da biblioteca react-beautiful-dnd</li>
-  <li>Utilização do react-router-dom para criar e gerenciar as rotas da aplicação</li>
+  <li>Utilização do react-router-dom</li>
   <li>Utilização da biblioteca react-toastify</li>
-  <li>Utilização do React Hook Form para a validação do formulário</li>
+  <li>Utilização do React Hook Form</li>
 </ul>
 <h2>✅ Features</h2>
 <ul>
