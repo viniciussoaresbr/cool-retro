@@ -9,11 +9,11 @@
 </ul>
 <h2>⚙️ Construção</h2>
 <ul>
-  <li>Utilização da biblioteca Styled Components</li>
-  <li>Utilização da biblioteca react-beautiful-dnd</li>
-  <li>Utilização do react-router-dom</li>
+  <li>Utilização da biblioteca styled components</li>
+  <li>Utilização da biblioteca react beautiful dnd</li>
+  <li>Utilização do react router dom</li>
   <li>Utilização da biblioteca react-toastify</li>
-  <li>Utilização do React Hook Form</li>
+  <li>Utilização do react hook form</li>
 </ul>
 <h2>✅ Features</h2>
 <ul>
