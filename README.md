@@ -6,10 +6,10 @@
 <ul>
   <li>React</li>
   <li>Typescript</li>
-  <li>Styled Components</li>
 </ul>
 <h2>⚙️ Construção</h2>
 <ul>
+  <li>Utilização da biblioteca Styled Components</li>
   <li>Utilização da biblioteca react-beautiful-dnd</li>
   <li>Utilização do react-router-dom</li>
   <li>Utilização da biblioteca react-toastify</li>
