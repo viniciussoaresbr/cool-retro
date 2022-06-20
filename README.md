@@ -20,7 +20,7 @@
   <li>Crie sua retro com nome , descrição e número total de votos</li>
   <li>Ao acessar sua retro você pode criar pequenas notas</li>
   <li>Você pode avaliar e exluir as notas criadas</li>
-  <li>As notas possuem um sistema Drag and drop , você pode arrastá-las para as outras colunas</li>
+  <li>As notas possuem um sistema drag and drop , você pode arrastá-las para as outras colunas</li>
 </ul>  
 
 
