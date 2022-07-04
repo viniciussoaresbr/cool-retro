@@ -70,6 +70,8 @@ const RetrospectiveProvider: React.FC = ({ children }) => {
         ],
       },
     });
+
+    setNoteText('');
   };
 
   const handleOnDragEnd = (result: DropResult) => {

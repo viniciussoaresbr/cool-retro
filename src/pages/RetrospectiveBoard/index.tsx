@@ -46,7 +46,6 @@ const RetrospectiveBoard = () => {
         <RetroLabel>Votos:</RetroLabel>
         <RetroVotes>{votes}</RetroVotes>
       </RetroHeader>
-
       <RetroForm onSubmit={e => handleSubmit(e)}>
         <RetroInput
           value={noteText}
