@@ -7,7 +7,6 @@ import {
 export interface Note {
   id?: string;
   text: string;
-  status: string;
   like: number;
 }
 export interface IColumns {
@@ -68,10 +67,8 @@ export interface RetrospectiveContextInterface {
   title: string;
   description: string;
   votes: number;
-  radioSelect: string;
   noteText: string;
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  handleSelectChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   handleOnDragEnd: (result: DropResult) => void;
   handleEvaluateNote: (
