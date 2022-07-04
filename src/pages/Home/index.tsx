@@ -5,7 +5,6 @@ import {
   ArrowIcon,
   HomeButton,
   HomeContainer,
-  HomeDescription,
   HomeTitle,
   PlanningVector,
   StyledHome,
@@ -17,8 +16,7 @@ const Home = () => {
   return (
     <StyledHome>
       <HomeContainer>
-        <HomeTitle>Faça uma Retrospectiva com sua equipe</HomeTitle>
-        <HomeDescription>- Avalie o que rolou na Sprint</HomeDescription>
+        <HomeTitle>Faça uma Retrospectiva com a sua equipe</HomeTitle>
         <HomeButton onClick={() => navigate(ROUTES.DASHBOARD_PAGE)}>
           <TextContent>Começar</TextContent>
           <ArrowIcon>&#10140;</ArrowIcon>

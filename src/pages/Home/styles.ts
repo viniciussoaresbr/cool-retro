@@ -19,14 +19,8 @@ export const PlanningVector = styled(Planning)`
 `;
 
 export const HomeTitle = styled.h1`
-  font: 2rem ${({ theme }) => theme.fonts.default};
+  font: 1.8rem ${({ theme }) => theme.fonts.default};
   font-weight: ${({ theme }) => theme.fonts.weight.bold};
-  color: ${({ theme }) => theme.colors.primary};
-`;
-
-export const HomeDescription = styled.p`
-  font: 1.3rem ${({ theme }) => theme.fonts.default};
-  font-weight: ${({ theme }) => theme.fonts.weight.regular};
   color: ${({ theme }) => theme.colors.primary};
 `;
 
@@ -36,11 +30,11 @@ export const HomeContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1rem;
 
   @media (max-width: 970px) {
     align-items: center;
     width: 100%;
+    height: 50vh;
   }
 `;
 
@@ -54,7 +48,7 @@ export const HomeButton = styled.button`
   color: ${({ theme }) => theme.colors.light};
   border-radius: 0.2rem;
   cursor: pointer;
-  margin-top: 3.5rem;
+  margin-top: 2rem;
   transition: all 0.35s;
   &:after {
     position: absolute;
