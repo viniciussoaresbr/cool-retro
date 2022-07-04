@@ -4,7 +4,6 @@ import { ReactComponent as Like } from '../../assets/like-icon.svg';
 
 interface DragDrogProps {
   isDragging: boolean;
-  radioSelect?: string;
 }
 
 export const NoteCardBoard = styled.div<DragDrogProps>`
@@ -14,12 +13,7 @@ export const NoteCardBoard = styled.div<DragDrogProps>`
   border-radius: 0.2rem;
   margin: 0.3rem 0;
   padding: 0.5rem;
-  background-color: ${({ isDragging, radioSelect }) => {
-    if (radioSelect === 'negative') {
-      return radioSelect && isDragging ? '#B5171A' : '#E32629';
-    }
-    return isDragging ? '#0C4C5A' : '#126E82';
-  }};
+  background-color: ${({ isDragging }) => (isDragging ? '#0C4C5A' : '#126E82')};
   user-select: none;
   word-break: break-all;
   overflow: hidden;

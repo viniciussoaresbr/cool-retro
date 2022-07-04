@@ -23,7 +23,6 @@ const NoteCard = ({
       {...provided.draggableProps}
       {...provided.dragHandleProps}
       isDragging={snapshot.isDragging}
-      radioSelect={note.status}
     >
       <NoteText>{note.text}</NoteText>
       <NavContainer>

@@ -53,28 +53,33 @@ export const RetroVotes = styled.p`
 `;
 
 export const RetroForm = styled.form`
-  width: 80%;
+  width: 50%;
   height: 4rem;
   display: flex;
   align-items: center;
+  justify-content: center;
   background-color: ${({ theme }) => theme.colors.light};
   margin-top: 1rem;
   border-radius: 0.3rem;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-  @media (max-width: 840px) {
-    width: 100%;
+  @media (max-width: 1024px) {
+    width: 80%;
   }
 
   @media (max-width: 630px) {
     flex-direction: column;
-    justify-content: space-around;
-    height: 10rem;
+    justify-content: space-evenly;
+    height: 9rem;
+  }
+
+  @media (max-width: 425px) {
+    width: 96%;
   }
 `;
 
 export const RetroInput = styled.input`
-  width: 40%;
+  width: 70%;
   height: 2rem;
   margin: 0 0.5rem;
   padding: 0 0.5rem;
@@ -91,86 +96,15 @@ export const RetroInput = styled.input`
 
   @media (max-width: 630px) {
     width: 90%;
-    height: 4rem;
-    margin: 0.5rem 0;
+    height: 3rem;
   }
-`;
-
-export const RadioButtonContainer = styled.section`
-  width: 40%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  @media (max-width: 400px) {
-    width: 100%;
-  }
-`;
-
-export const RadioButtonWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  height: 48px;
-  position: relative;
-`;
-
-export const RadioButtonLabel = styled.label`
-  position: absolute;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: white;
-  border: 1px solid #ced4da};
-  margin: 0 0.5rem;
-`;
-
-interface RadioButtonProps {
-  red?: string;
-}
-
-export const RadioButton = styled.input<RadioButtonProps>`
-  cursor: pointer;
-  opacity: 0;
-  z-index: 1;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  &:hover ~ ${RadioButtonLabel} {
-    background: #ced4da;
-    &::after {
-      content: '';
-      display: block;
-      border-radius: 50%;
-      width: 12px;
-      height: 12px;
-      margin: 5px;
-      background: #eeeeee;
-    }
-  }
-  ${props =>
-    props.checked &&
-    ` 
-    &:checked + ${RadioButtonLabel} {
-      background: ${props.red ? '#d90429' : '#51C4D3'};
-      border: 1px solid ${props.red ? '#d90429' : '#51C4D3'};
-      &::after {
-        content: "";
-        display: block;
-        border-radius: 50%;
-        width: 12px;
-        height: 12px;
-        margin: 5px;
-        box-shadow: 1px 3px 3px 1px rgba(0, 0, 0, 0.1);
-        background: white;
-      }
-    }
-  `}
 `;
 
 export const RetroButton = styled.button`
   font: 1rem ${({ theme }) => theme.fonts.default};
   width: 8rem;
   height: 2rem;
+  margin-right: 0.5rem;
   border-radius: 0.3rem;
   color: ${({ theme }) => theme.colors.light};
   background-color: ${({ theme }) => theme.colors.primaryLight};
@@ -181,7 +115,8 @@ export const RetroButton = styled.button`
   }
   @media (max-width: 630px) {
     width: 90%;
-    height: 4rem;
+    height: 3rem;
+    margin-right: 0;
   }
 `;
 
@@ -212,7 +147,6 @@ export const ColumnsContainer = styled.div`
 
 interface DragDrogProps {
   isDragging: boolean;
-  radioSelect?: string;
 }
 
 export const DroppableArea = styled.div<DragDrogProps>`

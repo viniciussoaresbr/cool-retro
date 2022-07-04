@@ -41,15 +41,10 @@ const RetrospectiveProvider: React.FC = ({ children }) => {
     },
   });
 
-  const [radioSelect, setRadioSelect] = useState<string>('positive');
   const [noteText, setNoteText] = useState<string>('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNoteText(e.target.value);
-  };
-
-  const handleSelectChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setRadioSelect(e.target.value);
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -70,7 +65,6 @@ const RetrospectiveProvider: React.FC = ({ children }) => {
           {
             id: idGenerator(),
             text: noteText,
-            status: radioSelect,
             like: 0,
           },
         ],
@@ -186,10 +180,8 @@ const RetrospectiveProvider: React.FC = ({ children }) => {
         title,
         description,
         votes,
-        radioSelect,
         noteText,
         handleInputChange,
-        handleSelectChange,
         handleSubmit,
         handleOnDragEnd,
         handleEvaluateNote,

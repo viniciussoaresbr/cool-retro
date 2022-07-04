@@ -6,10 +6,6 @@ import {
   DragDrogColumns,
   DragDrogContainer,
   DroppableArea,
-  RadioButton,
-  RadioButtonContainer,
-  RadioButtonLabel,
-  RadioButtonWrapper,
   RetroButton,
   RetroDescription,
   RetroForm,
@@ -32,10 +28,8 @@ const RetrospectiveBoard = () => {
     title,
     description,
     votes,
-    radioSelect,
     noteText,
     handleInputChange,
-    handleSelectChange,
     handleSubmit,
     handleOnDragEnd,
     handleEvaluateNote,
@@ -63,35 +57,6 @@ const RetrospectiveBoard = () => {
           onChange={e => handleInputChange(e)}
         />
         <RetroButton type="submit">Criar Nota</RetroButton>
-        <RadioButtonContainer>
-          <RadioButtonWrapper>
-            <RadioButton
-              type="radio"
-              name="radio"
-              value="positive"
-              checked={radioSelect === 'positive'}
-              onChange={e => handleSelectChange(e)}
-            />
-            <RadioButtonLabel />
-          </RadioButtonWrapper>
-          <RetroLabel fontSize="1rem" margin="1rem">
-            Ponto Positivo
-          </RetroLabel>
-          <RadioButtonWrapper>
-            <RadioButton
-              type="radio"
-              name="radio"
-              value="negative"
-              red="red"
-              checked={radioSelect === 'negative'}
-              onChange={e => handleSelectChange(e)}
-            />
-            <RadioButtonLabel />
-          </RadioButtonWrapper>
-          <RetroLabel fontSize="1rem" margin="1rem">
-            Ponto Negativo
-          </RetroLabel>
-        </RadioButtonContainer>
       </RetroForm>
       <DragDrogContainer>
         <DragDropContext onDragEnd={result => handleOnDragEnd(result)}>
