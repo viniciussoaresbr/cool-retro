@@ -6,21 +6,21 @@
 <ul>
   <li>React</li>
   <li>Typescript</li>
-  <li>Styled Components</li>
 </ul>
 <h2>⚙️ Construção</h2>
 <ul>
-  <li>Utilização da biblioteca react-beautiful-dnd</li>
-  <li>Utilização do react-router-dom para criar e gerenciar as rotas da aplicação</li>
+  <li>Utilização da biblioteca styled components</li>
+  <li>Utilização da biblioteca react beautiful dnd</li>
+  <li>Utilização do react router dom</li>
   <li>Utilização da biblioteca react-toastify</li>
-  <li>Utilização do React Hook Form para a validação do formulário</li>
+  <li>Utilização do react hook form</li>
 </ul>
 <h2>✅ Features</h2>
 <ul>
   <li>Crie sua retro com nome , descrição e número total de votos</li>
   <li>Ao acessar sua retro você pode criar pequenas notas</li>
   <li>Você pode avaliar e exluir as notas criadas</li>
-  <li>As notas possuem um sistema Drag and drop , você pode arrastá-las para as outras colunas</li>
+  <li>As notas possuem um sistema drag and drop , você pode arrastá-las para as outras colunas</li>
 </ul>  
 
 
