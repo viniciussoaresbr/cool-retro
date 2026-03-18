@@ -3,10 +3,10 @@
 Uma aplicação web moderna e intuitiva para gerenciar reuniões de retrospectiva de times ágeis. O **Cool Retro** permite criar quadros personalizados, adicionar notas, votar em ideias e organizar as colunas através de uma interface interativa com suporte a drag and drop.
 
 <div align="center">
-  <img src="./src/assets/screenshots/cool-retro-tela-inicial.png" alt="Cool Retro Home" width="800px">
+  <img src="./src/assets/screenshots/cool-retro-tela-inicial.png" alt="Cool Retro Home" width="90.5%">
   <img src="./src/assets/screenshots/cool-retro-lista.png" width="45%" alt="Lista de Retrospectivas">
   <img src="./src/assets/screenshots/cool-retro-board.png" width="45%" alt="Quadro de Retrospectiva">
-  <img src="./src/assets/screenshots/cool-retro-board-drag-and-drop.png" width="91%" alt="Drag and Drop em ação">
+  <img src="./src/assets/screenshots/cool-retro-board-drag-and-drop.png" width="90.5%" alt="Drag and Drop em ação">
 </div>
 
 > **Acesse o projeto:** [Cool Retro](http://cool-retro.vercel.app/)
