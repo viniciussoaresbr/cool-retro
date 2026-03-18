@@ -1,24 +1,40 @@
-
 # Cool Retro - Front-end
 
-![cool-retro](https://user-images.githubusercontent.com/85377319/174140918-04f51c73-9da1-44bc-8f2b-785127a50ba7.png)
-![cool-retro](https://user-images.githubusercontent.com/85377319/177184827-d569bdea-9bda-405d-8bc4-0a641ac2338a.png)
+Uma aplicação web moderna e intuitiva para gerenciar reuniões de retrospectiva de times ágeis. O **Cool Retro** permite criar quadros personalizados, adicionar notas, votar em ideias e organizar as colunas através de uma interface interativa com suporte a drag and drop.
 
-> **Acesse a Página do Projeto:** [Cool Retro](http://cool-retro.vercel.app/)
+<div align="center">
+  <img src="./src/assets/screenshots/cool-retro-tela-inicial.png" alt="Cool Retro Home" width="800px">
+  <img src="./src/assets/screenshots/cool-retro-lista.png" width="45%" alt="Lista de Retrospectivas">
+  <img src="./src/assets/screenshots/cool-retro-board.png" width="45%" alt="Quadro de Retrospectiva">
+  <img src="./src/assets/screenshots/cool-retro-board-drag-and-drop.png" width="91%" alt="Drag and Drop em ação">
+</div>
 
-## 💻 Tecnologias
-* React 
-* Typescript 
+> **Acesse o projeto:** [Cool Retro](http://cool-retro.vercel.app/)
 
-## ⚙️ Construção 
-* Utilização da biblioteca styled components 
-* Utilização da biblioteca react beautiful dnd 
-* Utilização do react router dom 
-* Utilização da biblioteca react-toastify 
-* Utilização do react hook form 
+---
 
- ## ✅ Features 
- * Crie sua retro com nome , descrição e número total de votos  
- * Ao acessar sua retro você pode criar pequenas notas  
- * Você pode avaliar e exluir as notas criadas  
- * As notas possuem um sistema drag and drop , você pode arrastá-las para as outras colunas
+## ✨ Features
+
+- **Criação de Quadros:** Personalize suas retrospectivas com nome, descrição e limite de votos.
+- **Notas Colaborativas:** Adicione notas em diferentes colunas para organizar os feedbacks do time.
+- **Interatividade (Drag & Drop):** Organize suas notas livremente entre as colunas com suporte a arrastar e soltar.
+- **Sistema de Votos:** Avalie as notas mais importantes para o time.
+- **Gestão de Conteúdo:** Edite ou exclua notas e retrospectivas conforme necessário.
+- **Feedback Visual:** Notificações em tempo real para ações do usuário.
+
+---
+
+## 🛠️ Tecnologias
+
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![React Hook Form](https://img.shields.io/badge/React%20Hook%20Form-EC5990?style=for-the-badge&logo=reacthookform&logoColor=white)
+
+- **Drag and Drop:** [React Beautiful Dnd](https://github.com/atlassian/react-beautiful-dnd)
+- **Notificações:** [React Toastify](https://fkhadra.github.io/react-toastify/introduction/)
+
+---
+
+Desenvolvido por [Vinicius Soares](https://github.com/viniciussoaresbr)
