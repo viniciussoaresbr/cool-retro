@@ -20,7 +20,6 @@ Uma aplicação web moderna e intuitiva para gerenciar reuniões de retrospectiv
 - **Interatividade (Drag & Drop):** Organize suas notas livremente entre as colunas com suporte a arrastar e soltar.
 - **Sistema de Votos:** Avalie as notas mais importantes para o time.
 - **Gestão de Conteúdo:** Edite ou exclua notas e retrospectivas conforme necessário.
-- **Feedback Visual:** Notificações em tempo real para ações do usuário.
 
 ---
 
@@ -33,7 +32,7 @@ Uma aplicação web moderna e intuitiva para gerenciar reuniões de retrospectiv
 ![React Hook Form](https://img.shields.io/badge/React%20Hook%20Form-EC5990?style=for-the-badge&logo=reacthookform&logoColor=white)
 
 - **Drag and Drop:** [React Beautiful Dnd](https://github.com/atlassian/react-beautiful-dnd)
-- **Notificações:** [React Toastify](https://fkhadra.github.io/react-toastify/introduction/)
+- **Toast:** [React Toastify](https://fkhadra.github.io/react-toastify/introduction/)
 
 ---
 
