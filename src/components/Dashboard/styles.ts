@@ -3,102 +3,130 @@ import { ReactComponent as Trash } from '../../assets/trash-icon.svg';
 import { ReactComponent as Edit } from '../../assets/edit-icon.svg';
 
 export const MainContainer = styled.main`
-  display: flex;
+  max-width: 1200px;
   width: 100%;
-  min-height: calc(100vh - 4rem);
-  @media (max-width: 540px) {
-    flex-direction: column;
-    align-items: center;
-  }
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 `;
 
 export const DashboardContainer = styled.section`
-  display: flex;
-  flex-wrap: wrap;
-  width: calc(100% - 15rem);
-  height: 100%;
-  @media (max-width: 540px) {
-    width: 100%;
-    justify-content: center;
-  }
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
 `;
 
 export const DashboardCard = styled.div`
-  display: grid;
-  grid-template-areas:
-    'label'
-    'title'
-    'label'
-    'description'
-    'label'
-    'votes'
-    'edit delete';
-
-  grid-template-columns: 100%;
-  grid-template-rows: 10% 15% 10% 35% 10% 10% 10%;
-  justify-items: center;
-  width: 15rem;
-  height: 20rem;
-  padding-top: 0.4rem;
-  background-color: ${({ theme }) => theme.colors.gray};
-  margin: 0.5rem;
-  border-radius: 0.3rem;
-  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  background-color: ${({ theme }) => theme.colors.surface};
+  border-radius: ${({ theme }) => theme.borderRadius.lg};
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  box-shadow: ${({ theme }) => theme.shadows.sm};
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   cursor: pointer;
+  transition: var(--transition);
+  position: relative;
   overflow: hidden;
-  word-break: break-all;
-  user-select: none;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: ${({ theme }) => theme.shadows.lg};
+    border-color: ${({ theme }) => theme.colors.secondary};
+  }
 `;
 
-export const DashboardTitle = styled.h1`
-  grid-area: 'title';
-  font: 1rem ${({ theme }) => theme.fonts.default};
+export const Badge = styled.div`
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  background-color: ${({ theme }) => theme.colors.background};
+  color: ${({ theme }) => theme.colors.secondary};
+  border-radius: ${({ theme }) => theme.borderRadius.full};
+  font-size: 0.75rem;
+  font-weight: ${({ theme }) => theme.fonts.weight.bold};
+  width: fit-content;
+`;
+
+export const DashboardTitle = styled.h3`
+  font-size: 1.25rem;
   color: ${({ theme }) => theme.colors.primary};
+  margin: 0;
 `;
 
 export const DashboardDescription = styled.p`
-  grid-area: 'description';
-  font: 1rem ${({ theme }) => theme.fonts.default};
-  color: ${({ theme }) => theme.colors.primary};
-  overflow-y: hidden;
+  font-size: 0.875rem;
+  color: ${({ theme }) => theme.colors.textLight};
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin: 0;
+  flex: 1;
 `;
 
-export const DashboardVotes = styled.h2`
-  grid-area: 'votes';
-  font: 1rem ${({ theme }) => theme.fonts.default};
-  color: ${({ theme }) => theme.colors.primary};
+export const CardFooter = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid ${({ theme }) => theme.colors.border};
 `;
 
-export const DashboardLabel = styled.label`
-  grid-area: 'label';
-  font: 1.2rem ${({ theme }) => theme.fonts.default};
-  cursor: pointer;
+export const VotesInfo = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  color: ${({ theme }) => theme.colors.text};
+  
+  span {
+    font-weight: ${({ theme }) => theme.fonts.weight.bold};
+  }
 `;
 
 export const NavArea = styled.nav`
-  width: 100%;
-  height: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  background-color: #ccdbe0;
-  border-bottom-right-radius: 0.3rem;
-  border-bottom-left-radius: 0.3rem;
-  cursor: default;
+  gap: 0.75rem;
+`;
+
+export const IconButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: ${({ theme }) => theme.borderRadius.md};
+  transition: var(--transition);
+  
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.background};
+  }
 `;
 
 export const TrashIcon = styled(Trash)`
-  grid-area: 'delete';
-  width: 25px;
-  height: 25px;
-  fill: ${({ theme }) => theme.colors.primary};
-  cursor: pointer;
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: ${({ theme }) => theme.colors.textLight};
+  
+  ${IconButton}:hover & {
+    fill: ${({ theme }) => theme.colors.red};
+  }
 `;
 
 export const EditIcon = styled(Edit)`
-  grid-area: 'edit';
-  width: 22px;
-  height: 22px;
-  fill: ${({ theme }) => theme.colors.primary};
-  cursor: pointer;
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: ${({ theme }) => theme.colors.textLight};
+
+  ${IconButton}:hover & {
+    fill: ${({ theme }) => theme.colors.secondary};
+  }
 `;

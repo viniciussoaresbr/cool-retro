@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import { DropResult } from 'react-beautiful-dnd';
 import { useLocation } from 'react-router-dom';
 import {
@@ -7,8 +7,8 @@ import {
   ParamsState,
   RetrospectiveContextInterface,
 } from '../../interfaces';
-import { toast } from 'react-toastify';
 import { v4 as idGenerator } from 'uuid';
+import { toast } from 'react-toastify';
 
 export const RetrospectiveContext = createContext(
   {} as RetrospectiveContextInterface,
@@ -42,24 +42,32 @@ const RetrospectiveProvider: React.FC = ({ children }) => {
   });
 
   const [noteText, setNoteText] = useState<string>('');
+  const [errorMessage, setErrorMessage] = useState<string>('');
+
+  useEffect(() => {
+    if (errorMessage) {
+      const timer = setTimeout(() => setErrorMessage(''), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [errorMessage]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNoteText(e.target.value);
+    if (errorMessage) setErrorMessage('');
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!noteText) {
-      toast.error('Nota não pode estar vazia');
+    if (!noteText.trim()) {
+      setErrorMessage('A nota não pode estar vazia');
       return;
     }
 
     setColumns({
       ...columns,
       notes: {
-        name: 'Todas as anotações',
-        column: 'notes',
+        ...columns.notes,
         items: [
           ...columns.notes.items,
           {
@@ -72,11 +80,11 @@ const RetrospectiveProvider: React.FC = ({ children }) => {
     });
 
     setNoteText('');
+    setErrorMessage('');
   };
 
   const handleOnDragEnd = (result: DropResult) => {
     if (!result.destination) {
-      toast.error('Não foi possível arrastar');
       return;
     }
 
@@ -140,8 +148,7 @@ const RetrospectiveProvider: React.FC = ({ children }) => {
       setColumns({
         ...columns,
         [column.column]: {
-          name: column.name,
-          column: column.column,
+          ...column,
           items: columns[column.column].items.map(item => {
             if (item.id === note.id) {
               return {
@@ -154,6 +161,8 @@ const RetrospectiveProvider: React.FC = ({ children }) => {
           }),
         },
       });
+    } else if (totalLikesClicked >= votes) {
+      toast.error(`Limite de ${votes} votos atingido`);
     }
   };
 
@@ -168,8 +177,7 @@ const RetrospectiveProvider: React.FC = ({ children }) => {
     setColumns({
       ...columns,
       [column.column]: {
-        name: column.name,
-        column: column.column,
+        ...column,
         items: columns[column.column].items.filter(item => item.id !== note.id),
       },
     });
@@ -183,6 +191,7 @@ const RetrospectiveProvider: React.FC = ({ children }) => {
         description,
         votes,
         noteText,
+        errorMessage,
         handleInputChange,
         handleSubmit,
         handleOnDragEnd,

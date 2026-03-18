@@ -68,6 +68,7 @@ export interface RetrospectiveContextInterface {
   description: string;
   votes: number;
   noteText: string;
+  errorMessage: string;
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   handleOnDragEnd: (result: DropResult) => void;

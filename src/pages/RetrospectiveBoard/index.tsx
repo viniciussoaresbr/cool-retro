@@ -14,13 +14,18 @@ import {
   RetroLabel,
   RetroSection,
   RetroTitle,
-  RetroVotes,
+  VotesBadge,
+  HeaderContent,
+  InfoGroup,
+  InputGroup,
+  ErrorMessage,
+  ErrorContainer,
 } from './styles';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import NoteCard from '../../components/NoteCard';
 import { RetrospectiveContext } from '../../contexts/RetrospectiveContext';
 import { Note } from '../../interfaces';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const RetrospectiveBoard = () => {
   const {
@@ -29,6 +34,7 @@ const RetrospectiveBoard = () => {
     description,
     votes,
     noteText,
+    errorMessage,
     handleInputChange,
     handleSubmit,
     handleOnDragEnd,
@@ -39,24 +45,36 @@ const RetrospectiveBoard = () => {
   return (
     <RetroSection>
       <RetroHeader>
-        <RetroLabel>Nome:</RetroLabel>
-        <RetroTitle>{title}</RetroTitle>
-        <RetroLabel>Descrição:</RetroLabel>
-        <RetroDescription>{description}</RetroDescription>
-        <RetroLabel>Votos:</RetroLabel>
-        <RetroVotes>{votes}</RetroVotes>
+        <HeaderContent>
+          <InfoGroup>
+            <RetroLabel>Quadro de Retrospectiva</RetroLabel>
+            <RetroTitle>{title}</RetroTitle>
+            <RetroDescription>{description}</RetroDescription>
+          </InfoGroup>
+          <VotesBadge>
+            <span>Votos Disponíveis</span>
+            <span>{votes}</span>
+          </VotesBadge>
+        </HeaderContent>
       </RetroHeader>
+
       <RetroForm onSubmit={e => handleSubmit(e)}>
-        <RetroInput
-          value={noteText}
-          type="text"
-          name="note"
-          placeholder="Digite algo..."
-          maxLength={120}
-          onChange={e => handleInputChange(e)}
-        />
-        <RetroButton type="submit">Criar Nota</RetroButton>
+        <InputGroup>
+          <RetroInput
+            value={noteText}
+            type="text"
+            name="note"
+            placeholder="O que você tem em mente?"
+            maxLength={120}
+            onChange={e => handleInputChange(e)}
+          />
+          <RetroButton type="submit">Criar Nota</RetroButton>
+        </InputGroup>
+        <ErrorContainer>
+          {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
+        </ErrorContainer>
       </RetroForm>
+
       <DragDrogContainer>
         <DragDropContext onDragEnd={result => handleOnDragEnd(result)}>
           {Object.entries(columns).map(([columnId, column]) => {
@@ -108,7 +126,7 @@ const RetrospectiveBoard = () => {
           })}
         </DragDropContext>
       </DragDrogContainer>
-      <ToastContainer autoClose={2000} />
+      <ToastContainer autoClose={3000} position="top-right" />
     </RetroSection>
   );
 };

@@ -7,8 +7,8 @@ import theme from './styles/theme/theme';
 
 ReactDOM.render(
   <React.StrictMode>
-    <GlobalStyle />
     <ThemeProvider theme={theme}>
+      <GlobalStyle />
       <RouteManager />
     </ThemeProvider>
   </React.StrictMode>,

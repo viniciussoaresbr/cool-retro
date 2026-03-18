@@ -3,146 +3,187 @@ import styled from 'styled-components';
 export const RetroSection = styled.section`
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: 100%;
-  min-height: 100vh;
+  min-height: calc(100vh - 4.5rem);
 `;
 
 export const RetroHeader = styled.header`
-  width: 100%;
-  min-height: 2rem;
+  background-color: ${({ theme }) => theme.colors.surface};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+  padding: 1.5rem 0;
+  margin-bottom: 2rem;
+`;
+
+export const HeaderContent = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: ${({ theme }) => theme.colors.gray};
-  @media (max-width: 430px) {
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+
+  @media (max-width: 768px) {
     flex-direction: column;
-    min-height: 10rem;
-    justify-content: space-between;
+    align-items: flex-start;
   }
 `;
 
-interface RetroProps {
-  fontSize?: string;
-  margin?: string;
-}
+export const InfoGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+`;
 
-export const RetroLabel = styled.label<RetroProps>`
-  font-family: ${({ theme }) => theme.fonts.default};
-  font-size:  ${({ fontSize }) => (fontSize ? fontSize : '1.3rem')}
-  font-weight: ${({ theme }) => theme.fonts.weight.regular};
-  margin-left: ${({ margin }) => (margin ? margin : '1.5rem')};
-  margin-right: 1rem;
+export const RetroLabel = styled.span`
+  font-size: 0.75rem;
+  font-weight: ${({ theme }) => theme.fonts.weight.bold};
+  color: ${({ theme }) => theme.colors.textLight};
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 `;
 
 export const RetroTitle = styled.h1`
-  font: 1.1rem ${({ theme }) => theme.fonts.default};
-  font-weight: ${({ theme }) => theme.fonts.weight.regular};
-  word-break: break-word;
+  font-size: 1.5rem;
+  margin: 0;
+  color: ${({ theme }) => theme.colors.primary};
 `;
 
 export const RetroDescription = styled.p`
-  font: 1.1rem ${({ theme }) => theme.fonts.default};
-  font-weight: ${({ theme }) => theme.fonts.weight.regular};
-  word-break: break-word;
+  font-size: 1rem;
+  color: ${({ theme }) => theme.colors.textLight};
+  margin: 0;
 `;
 
-export const RetroVotes = styled.p`
-  font: 1.1rem ${({ theme }) => theme.fonts.default};
-  font-weight: ${({ theme }) => theme.fonts.weight.regular};
+export const VotesBadge = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: ${({ theme }) => theme.colors.primary};
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: ${({ theme }) => theme.borderRadius.md};
+  min-width: 100px;
+
+  span:first-child {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    opacity: 0.8;
+  }
+
+  span:last-child {
+    font-size: 1.25rem;
+    font-weight: ${({ theme }) => theme.fonts.weight.bold};
+  }
 `;
 
 export const RetroForm = styled.form`
-  width: 50%;
-  height: 4rem;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto 3rem;
+  padding: 0 1.5rem;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: ${({ theme }) => theme.colors.light};
-  margin-top: 1rem;
-  border-radius: 0.3rem;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-  @media (max-width: 1024px) {
-    width: 80%;
-  }
+  flex-direction: column;
+  gap: 0.5rem;
+`;
 
-  @media (max-width: 630px) {
+export const InputGroup = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  
+  @media (max-width: 480px) {
     flex-direction: column;
-    justify-content: space-evenly;
-    height: 9rem;
-  }
-
-  @media (max-width: 425px) {
-    width: 96%;
   }
 `;
 
 export const RetroInput = styled.input`
-  width: 70%;
-  height: 2rem;
-  margin: 0 0.5rem;
-  padding: 0 0.5rem;
-  font: 1.1rem ${({ theme }) => theme.fonts.default};
-  font-weight: ${({ theme }) => theme.fonts.weight.regular};
-  background-color: ${({ theme }) => theme.colors.light};
-  border: 1px solid ${({ theme }) => theme.colors.gray};
-  border-radius: 0.3rem;
-  outline: none;
-  transition: ease 0.3s;
-  &:focus {
-    border: 1px solid ${({ theme }) => theme.colors.primaryLight};
-  }
+  flex: 1;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  background-color: ${({ theme }) => theme.colors.surface};
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  border-radius: ${({ theme }) => theme.borderRadius.md};
+  box-shadow: ${({ theme }) => theme.shadows.sm};
 
-  @media (max-width: 630px) {
-    width: 90%;
-    height: 3rem;
+  &:focus {
+    border-color: ${({ theme }) => theme.colors.secondary};
+    box-shadow: 0 0 0 3px ${({ theme }) => theme.colors.secondary}33;
   }
 `;
 
 export const RetroButton = styled.button`
-  font: 1rem ${({ theme }) => theme.fonts.default};
-  width: 8rem;
-  height: 2rem;
-  margin-right: 0.5rem;
-  border-radius: 0.3rem;
-  color: ${({ theme }) => theme.colors.light};
-  background-color: ${({ theme }) => theme.colors.primaryLight};
-  cursor: pointer;
-  transition: ease 0.3s;
+  padding: 0.75rem 1.5rem;
+  background-color: ${({ theme }) => theme.colors.secondary};
+  color: white;
+  font-weight: ${({ theme }) => theme.fonts.weight.semibold};
+  border-radius: ${({ theme }) => theme.borderRadius.md};
+  box-shadow: ${({ theme }) => theme.shadows.sm};
+  white-space: nowrap;
+
   &:hover {
-    background-color: ${({ theme }) => theme.colors.secondary};
+    background-color: ${({ theme }) => theme.colors.primaryLight};
+    transform: translateY(-1px);
+    box-shadow: ${({ theme }) => theme.shadows.md};
   }
-  @media (max-width: 630px) {
-    width: 90%;
-    height: 3rem;
-    margin-right: 0;
+
+  &:active {
+    transform: translateY(0);
   }
 `;
 
-export const DragDrogContainer = styled.section`
+export const ErrorMessage = styled.span`
+  color: ${({ theme }) => theme.colors.red};
+  font-size: 0.875rem;
+  margin-left: 0.25rem;
+`;
+
+export const ErrorContainer = styled.div`
+  height: 1.25rem;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  align-items: center;
+`;
+
+export const DragDrogContainer = styled.div`
+  max-width: 1400px;
   width: 100%;
-  min-height: 100vh;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  align-items: start;
 `;
 
 export const DragDrogColumns = styled.div`
   display: flex;
-  align-items: center;
   flex-direction: column;
+  gap: 1rem;
 `;
 
-export const ColumnsLabel = styled.label`
-  font: 1.3rem ${({ theme }) => theme.fonts.default};
-  font-weight: ${({ theme }) => theme.fonts.weight.regular};
-  margin: 1rem 0;
+export const ColumnsLabel = styled.h2`
+  font-size: 1.125rem;
+  color: ${({ theme }) => theme.colors.primary};
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: ${({ theme }) => theme.colors.secondary};
+  }
 `;
 
 export const ColumnsContainer = styled.div`
-  margin: 0.5rem;
-  border-radius: 0.5rem;
+  background-color: #ebf1f3;
+  border-radius: ${({ theme }) => theme.borderRadius.lg};
+  padding: 1rem;
+  min-height: 500px;
+  border: 1px solid ${({ theme }) => theme.colors.border};
 `;
 
 interface DragDrogProps {
@@ -152,12 +193,10 @@ interface DragDrogProps {
 export const DroppableArea = styled.div<DragDrogProps>`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 20rem;
-  min-height: 100vh;
-  padding: 0.3rem;
-  border-radius: 0.3rem;
-  transition: ease 0.2s;
+  gap: 1rem;
+  min-height: 480px;
+  border-radius: ${({ theme }) => theme.borderRadius.md};
+  transition: var(--transition);
   background-color: ${({ isDragging }) =>
-    isDragging ? '#C0D2D8' : '#D8E3E7 '};
+    isDragging ? 'rgba(81, 196, 211, 0.1)' : 'transparent'};
 `;

@@ -8,59 +8,77 @@ interface DragDrogProps {
 
 export const NoteCardBoard = styled.div<DragDrogProps>`
   position: relative;
-  width: 19rem;
-  height: 5rem;
-  border-radius: 0.2rem;
-  margin: 0.3rem 0;
-  padding: 0.5rem;
-  background-color: ${({ isDragging }) => (isDragging ? '#0C4C5A' : '#126E82')};
+  width: 100%;
+  min-height: 100px;
+  border-radius: ${({ theme }) => theme.borderRadius.md};
+  margin-bottom: 0.75rem;
+  padding: 1rem;
+  background-color: ${({ theme, isDragging }) =>
+    isDragging ? theme.colors.border : theme.colors.surface};
+  box-shadow: ${({ theme, isDragging }) =>
+    isDragging ? theme.shadows.lg : theme.shadows.sm};
+  border: 1px solid ${({ theme }) => theme.colors.border};
   user-select: none;
-  word-break: break-all;
-  overflow: hidden;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+
+  &:hover {
+    border-color: ${({ theme }) => theme.colors.secondary};
+    box-shadow: ${({ theme }) => theme.shadows.md};
+  }
 `;
 
 export const NoteText = styled.p`
-  font: 1rem ${({ theme }) => theme.fonts.default};
-  font-weight: ${({ theme }) => theme.fonts.weight.regular};
-  color: ${({ theme }) => theme.colors.light};
+  font-size: 0.9375rem;
+  color: ${({ theme }) => theme.colors.text};
+  line-height: 1.5;
+  word-break: break-word;
 `;
 
 export const NavContainer = styled.nav`
-  position: absolute;
-  bottom: 5px;
-  right: 5px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 65px;
-  height: 20px;
+  margin-top: auto;
 `;
 
 export const NoteTrashIcon = styled(Trash)`
-  width: 22px;
-  height: 22px;
-  fill: ${({ theme }) => theme.colors.primary};
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: ${({ theme }) => theme.colors.textLight};
   cursor: pointer;
+  transition: var(--transition);
+
+  &:hover {
+    fill: ${({ theme }) => theme.colors.red};
+    transform: scale(1.1);
+  }
 `;
 
 export const NoteLikeContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 37px;
-  height: 100%;
+  gap: 0.5rem;
 `;
 
 export const NoteLikeIcon = styled(Like)`
-  width: 15px;
-  height: 15px;
-  fill: ${({ theme }) => theme.colors.primary};
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: ${({ theme }) => theme.colors.textLight};
   cursor: pointer;
+  transition: var(--transition);
+
+  &:hover {
+    fill: ${({ theme }) => theme.colors.secondary};
+    transform: scale(1.1);
+  }
 `;
 
 export const NoteLikeScore = styled.span`
-  font: 1rem ${({ theme }) => theme.fonts.default};
+  font-size: 0.875rem;
   font-weight: ${({ theme }) => theme.fonts.weight.bold};
-  color: ${({ theme }) => theme.colors.primary};
-  align-self: flex-end;
+  color: ${({ theme }) => theme.colors.textLight};
 `;

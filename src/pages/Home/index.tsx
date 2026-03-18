@@ -6,23 +6,29 @@ import {
   HomeButton,
   HomeContainer,
   HomeTitle,
+  HomeSubtitle,
   PlanningVector,
   StyledHome,
-  TextContent,
+  MainContent,
 } from './styles';
 
 const Home = () => {
   const navigate = useNavigate();
   return (
     <StyledHome>
-      <HomeContainer>
-        <HomeTitle>Faça uma Retrospectiva com a sua equipe</HomeTitle>
-        <HomeButton onClick={() => navigate(ROUTES.DASHBOARD_PAGE)}>
-          <TextContent>Começar</TextContent>
-          <ArrowIcon>&#10140;</ArrowIcon>
-        </HomeButton>
-      </HomeContainer>
-      <PlanningVector />
+      <MainContent>
+        <HomeContainer>
+          <HomeTitle>Evolua com sua equipe</HomeTitle>
+          <HomeSubtitle>
+            A ferramenta de retrospectiva simples, elegante e eficiente para times que buscam melhoria contínua.
+          </HomeSubtitle>
+          <HomeButton onClick={() => navigate(ROUTES.DASHBOARD_PAGE)}>
+            Começar agora
+            <ArrowIcon>&#10140;</ArrowIcon>
+          </HomeButton>
+        </HomeContainer>
+        <PlanningVector />
+      </MainContent>
     </StyledHome>
   );
 };

@@ -8,12 +8,14 @@ import {
   DashboardTitle,
   DashboardDescription,
   MainContainer,
-  DashboardVotes,
-  DashboardLabel,
   TrashIcon,
   EditIcon,
   NavArea,
   DashboardContainer,
+  Badge,
+  CardFooter,
+  VotesInfo,
+  IconButton,
 } from './styles';
 
 const DashBoard = () => {
@@ -24,7 +26,48 @@ const DashBoard = () => {
 
   return (
     <MainContainer>
-      <AddBox boxText="Adicionar Retro" handleClick={() => setShowForm(true)} />
+      <AddBox boxText="Nova Retrospectiva" handleClick={() => setShowForm(true)} />
+      
+      <DashboardContainer>
+        {dashboards.map(dashboard => {
+          return (
+            <DashboardCard
+              key={dashboard.id}
+              onClick={() => navigateToPage(dashboard)}
+            >
+              <Badge>Retro</Badge>
+              <DashboardTitle>{dashboard.title}</DashboardTitle>
+              <DashboardDescription>
+                {dashboard.description}
+              </DashboardDescription>
+              
+              <CardFooter>
+                <VotesInfo>
+                  Votos: <span>{dashboard.votes}</span>
+                </VotesInfo>
+                <NavArea onClick={e => e.stopPropagation()}>
+                  <IconButton
+                    onClick={() => {
+                      setShowForm(true);
+                      setDashboardId(dashboard.id);
+                    }}
+                    title="Editar"
+                  >
+                    <EditIcon />
+                  </IconButton>
+                  <IconButton
+                    onClick={() => deleteDashboards(dashboard.id as string)}
+                    title="Excluir"
+                  >
+                    <TrashIcon />
+                  </IconButton>
+                </NavArea>
+              </CardFooter>
+            </DashboardCard>
+          );
+        })}
+      </DashboardContainer>
+
       <Modal isOpen={showForm}>
         <Form
           handleClose={() => {
@@ -34,36 +77,6 @@ const DashBoard = () => {
           dashboardId={dashboardId}
         />
       </Modal>
-      <DashboardContainer>
-        {dashboards.map(dashboard => {
-          return (
-            <DashboardCard
-              key={dashboard.id}
-              onClick={() => navigateToPage(dashboard)}
-            >
-              <DashboardLabel>Nome da Retro:</DashboardLabel>
-              <DashboardTitle>{dashboard.title}</DashboardTitle>
-              <DashboardLabel>Descrição da Retro:</DashboardLabel>
-              <DashboardDescription>
-                {dashboard.description}
-              </DashboardDescription>
-              <DashboardLabel>Quantidade de Votos:</DashboardLabel>
-              <DashboardVotes>{dashboard.votes}</DashboardVotes>
-              <NavArea onClick={e => e.stopPropagation()}>
-                <EditIcon
-                  onClick={() => {
-                    setShowForm(true);
-                    setDashboardId(dashboard.id);
-                  }}
-                />
-                <TrashIcon
-                  onClick={() => deleteDashboards(dashboard.id as string)}
-                />
-              </NavArea>
-            </DashboardCard>
-          );
-        })}
-      </DashboardContainer>
     </MainContainer>
   );
 };
