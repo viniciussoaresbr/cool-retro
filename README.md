@@ -1,6 +1,6 @@
 # Cool Retro - Front-end
 
-Uma aplicação web moderna e intuitiva para gerenciar reuniões de retrospectiva de times ágeis. O **Cool Retro** permite criar quadros personalizados, adicionar notas, votar em ideias e organizar as colunas através de uma interface interativa com suporte a drag and drop.
+Uma interface intuitiva para gerenciamento de reuniões de retrospectiva em times ágeis. O **Cool Retro** permite criar quadros personalizados, adicionar notas, votar em ideias e organizar as colunas através de uma interface interativa com drag and drop.
 
 <div align="center">
   <img src="./src/assets/screenshots/cool-retro-tela-inicial.png" alt="Cool Retro Home" width="90.5%">
