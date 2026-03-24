@@ -21,7 +21,8 @@ const Form = ({ handleClose, dashboardId = '' }: FormProps) => {
     votes: string;
   };
 
-  const { createDashboards, updateDashboards, dashboards } = useContext(DashboardContext);
+  const { createDashboards, updateDashboards, dashboards } =
+    useContext(DashboardContext);
 
   const dashboardToEdit = dashboards.find(d => d.id === dashboardId);
 
@@ -30,11 +31,13 @@ const Form = ({ handleClose, dashboardId = '' }: FormProps) => {
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>({
-    defaultValues: dashboardId ? {
-      title: dashboardToEdit?.title,
-      description: dashboardToEdit?.description,
-      votes: dashboardToEdit?.votes,
-    } : undefined
+    defaultValues: dashboardId
+      ? {
+          title: dashboardToEdit?.title,
+          description: dashboardToEdit?.description,
+          votes: dashboardToEdit?.votes,
+        }
+      : undefined,
   });
 
   return (
@@ -49,7 +52,7 @@ const Form = ({ handleClose, dashboardId = '' }: FormProps) => {
       <FormTitle>
         {dashboardId ? 'Editar Retrospectiva' : 'Nova Retrospectiva'}
       </FormTitle>
-      
+
       <FormGroup>
         <StyledLabel>Nome da Retro</StyledLabel>
         <StyledInput
@@ -84,7 +87,7 @@ const Form = ({ handleClose, dashboardId = '' }: FormProps) => {
       </FormGroup>
 
       <FormGroup>
-        <StyledLabel>Quantidade de Votos por Pessoa</StyledLabel>
+        <StyledLabel>Quantidade de Votos</StyledLabel>
         <StyledInput
           {...register('votes', { required: true })}
           type="number"
@@ -101,8 +104,10 @@ const Form = ({ handleClose, dashboardId = '' }: FormProps) => {
       <StyledButton type="submit">
         {dashboardId ? 'Salvar Alterações' : 'Criar Retrospectiva'}
       </StyledButton>
-      
-      <CloseIcon type="button" onClick={handleClose}>&times;</CloseIcon>
+
+      <CloseIcon type="button" onClick={handleClose}>
+        &times;
+      </CloseIcon>
     </StyledForm>
   );
 };
